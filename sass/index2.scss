@@ -1,0 +1,451 @@
+$size : 50px;
+$items : 5;
+$transition : .5s;
+$bounce : cubic-bezier(.3,1.4,.5,.9);
+$color-inner : rgb(255, 0, 64);
+$color-outer : rgb(255, 71, 255);
+$background: mix($color-inner, $color-outer);
+$black : shade($color-outer, 80%);
+$start-scale : .5;
+$start-rot : 190deg;
+
+@import url('https://fonts.googleapis.com/css?family=Alegreya+Sans:800,900');
+
+html, body, main { height: 100%; }
+body {
+  background: rgb(110, 190, 236);
+  font-family: Alegreya Sans, sans-serif;
+}
+  nav {
+    display: block;
+    position: fixed;
+    width: $size * $items * 2;
+    height: $size * $items * 2;
+    user-select: none;
+    transform: translate3d($size*.5,-$size*.5,0);
+    transition: transform $transition $bounce;
+    z-index: 3;
+    
+    &.open {
+      transform: translate3d(0,0,0);
+    }
+    
+    &.top-right {
+      top: -$size * ($items - 2.2);
+      right: -$size * ($items - 2.2);
+    }
+  }
+  
+  .disc { 
+    position: absolute;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    font: $size*.5 Alegreya Sans, sans-serif;
+    line-height: $size * .8;
+    padding-top: $size * .2;
+    border-radius: $size * $items;
+    transform: scale3d($start-scale, $start-scale, $start-scale) rotate3d(0,0,1,$start-rot);
+    pointer-events: none;
+    opacity: 0;
+    cursor: pointer;
+    transition: transform $transition $bounce, opacity $transition;
+    text-decoration: none;
+    color: black;
+    
+    div {
+      transform: rotate(180deg);
+    }
+    
+    .open & {
+      pointer-events: auto;
+      opacity: 1; 
+    }
+  }
+  
+  @for $i from 1 through $items {
+    .l#{$i} {
+      $i : $i - 1;
+      $-i : $items - $i;
+      $pct : $i/$items * 100%;
+      $color :  mix($color-inner, $color-outer, $pct);
+      
+      top: $i * $size;
+      left: $i * $size;
+      right: $i * $size;
+      bottom: $i * $size;
+      background: $color;
+      transition-delay: $i * $transition/$items;
+      
+      .open & {
+        transition-delay: $i * $transition/$items;
+        transform: scale3d(1,1,1) rotate3d(0,0,1,$start-rot);
+        opacity: 1;
+        
+        &:hover {
+          background: shade($color, 90%);
+          color: $color;
+          transition-delay: 0s;
+          
+        }
+        
+        &:active {
+          background: shade($color, 50%);
+          color: $color;
+        }
+        
+        &.toggle {
+          transform: scale3d(.9,.9,.9) rotate3d(0,0,1,$start-rot - 180deg);
+        }
+      }
+    }
+  }
+  
+  .toggle {
+    line-height: $size*2;
+    padding: 0;
+    width: $size*2;
+    background: $color-inner;
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+    transition-delay: 0s;
+    
+    .open & {
+      transform: rotate3d(0,0,1,0deg);
+    }
+    
+    &:hover {
+      background: shade($color-inner, 90%);
+      text-decoration: underline;
+    }
+    &:active {
+      background: shade($color-inner, 50%);
+      color: rgba($color-inner, .5);
+      transform: scale(.9);
+      transition-duration: 0s;
+    }
+  }
+
+  main {
+    // ボタン位置固定
+    position: relative;
+    .title {
+      margin: 10em 0 20em 0;
+    }
+    p {
+      color: #fff;
+      font-family: 'Oswald', sans-serif;
+      font-size: 1em;
+    font-weight: 700;
+    
+    span {
+      display: inline-block;
+      position: relative;
+      transform-style: preserve-3d;
+      perspective: 500px;
+    }
+    span::before,
+    span::after {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: -1px;
+      transform-origin: left top;
+      transition: all ease-out .3s;
+      content: attr(date-text);
+    }
+    span::before {
+      z-index: 1;
+      color: rgba(0,0,0,0.2);
+      transform: scale(1.1,1) skew(0deg, 20deg);
+    }
+    span::after {
+      z-index: 2;
+      color: #3498db;
+      text-shadow: -1px 0 1px #3498db, 1px 0 1px #fff;
+      transform: rotateY(-40deg);
+    }
+    span:hover::before {
+      transform: scale(1.1,1) skew(0deg,5deg);
+    }
+    span:hover::after {
+      transform: rotateY(-10deg);
+    }
+    span + span {
+      margin-left: .3em;
+    }
+  }
+  @media (min-width: 20em) {
+    p {
+      font-size: 2em;
+    }
+    p span::before,p span::after {
+      display: block;
+    }
+  }
+  @media (min-width: 30em) {
+    p {
+      font-size: 3em;
+    }
+  }
+  @media (min-width:40em) {
+    p {
+      font-size: 5em;
+    }
+  }
+  @media (min-width:60em) {
+    p {
+      font-size: 8em;
+    }
+  }
+  // 全体
+  .hidden_box1 {
+    margin: 2em 0;
+    padding: 0;
+    position: absolute;
+    // left: 35%;
+    top: 100%;
+    .hidden_show1 {
+      width: 100vw;
+      background-color: white;
+      margin-top: 20px;
+      ul {
+        display: flex;
+        justify-content: space-around;
+        .animation {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: space-around;
+          font-size: 20px;
+        }
+        .animation1 {
+          font-size: 100px;
+          list-style: none;
+        }
+      }
+    }
+  }
+     // ボタンの装飾
+    .hidden_box1 label {
+      padding: 15px;
+      font-weight: bold;
+      border: solid 2px black;
+      cursor: pointer;
+      font-size: 3em;
+    }
+    // アイコン
+    .hidden_box1 label:before {
+      display: inline-block;
+      content: '\f107';
+      font-family: 'Font Awesome 5 Free';
+      padding-right: 5px;
+      transition: 0.2s;
+    }
+    // ボタンホバー時
+    .hidden_box1 label:hover {
+      background: #efefef;
+    }
+    // アイコン変わる
+    .hidden_box1 input:checked ~ label:before {
+      content: '\f00d';
+      font-family: 'Font Awesome 5 Free';
+      transform: rotate(360deg);
+      color: #668ad8;
+    }
+    // チェックボックス隠す
+    .hidden_box1 input {
+      display: none;
+    }
+    // 中身を非表示
+    .hidden_box1 .hidden_show1 {
+      height: 0;
+      padding: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: 0.8s;
+    }
+    // クリックで表示
+    .hidden_box1 input:checked ~ .hidden_show1 {
+      padding: 10px 0;
+      height: auto;
+      opacity: 1;
+    }
+  .hidden_box2 {
+    margin: 2em 0;
+    padding: 0;
+    position: absolute;
+    // left: 35%;
+    top: 150%;
+    .hidden_show2 {
+      width: 100vw;
+      background-color: white;
+      margin-top: 20px;
+      ul {
+        display: flex;
+        justify-content: space-around;
+        .animation {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: space-around;
+          font-size: 20px;
+        }
+        .animation2 {
+          font-size: 30px;
+          list-style: none;
+        }
+      }
+    }
+  }
+  // ボタンの装飾
+  .hidden_box2 label {
+    padding: 15px;
+    font-weight: bold;
+    border: solid 2px black;
+    cursor: pointer;
+    font-size: 3em;
+  }
+  // アイコン
+  .hidden_box2 label:before {
+    display: inline-block;
+    content: '\f107';
+    font-family: 'Font Awesome 5 Free';
+    padding-right: 5px;
+    transition: 0.2s;
+  }
+  // ボタンホバー時
+  .hidden_box2 label:hover {
+    background: #efefef;
+  }
+  // アイコン変わる
+  .hidden_box2 input:checked ~ label:before {
+    content: '\f00d';
+    font-family: 'Font Awesome 5 Free';
+    transform: rotate(360deg);
+    color: #668ad8;
+  }
+  // チェックボックス隠す
+  .hidden_box2 input {
+    display: none;
+  }
+  // 中身を非表示
+  .hidden_box2 .hidden_show2 {
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: 0.8s;
+  }
+  // クリックで表示
+  .hidden_box2 input:checked ~ .hidden_show2 {
+    padding: 10px 0;
+    height: auto;
+    opacity: 1;
+  }
+  .hidden_box3 {
+    margin: 2em 0;
+    padding: 0;
+    position: absolute;
+    left: 35%;
+    top: 200%;
+  }
+     // ボタンの装飾
+    .hidden_box3 label {
+      padding: 15px;
+      font-weight: bold;
+      border: solid 2px black;
+      cursor: pointer;
+      font-size: 3em;
+    }
+    // アイコン
+    .hidden_box3 label:before {
+      display: inline-block;
+      content: '\f107';
+      font-family: 'Font Awesome 5 Free';
+      padding-right: 5px;
+      transition: 0.2s;
+    }
+    // ボタンホバー時
+    .hidden_box3 label:hover {
+      background: #efefef;
+    }
+    // アイコン変わる
+    .hidden_box3 input:checked ~ label:before {
+      content: '\f00d';
+      font-family: 'Font Awesome 5 Free';
+      transform: rotate(360deg);
+      color: #668ad8;
+    }
+    // チェックボックス隠す
+    .hidden_box3 input {
+      display: none;
+    }
+    // 中身を非表示
+    .hidden_box3 .hidden_show3 {
+      height: 0;
+      padding: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: 0.8s;
+    }
+    // クリックで表示
+    .hidden_box3 input:checked ~ .hidden_show3 {
+      padding: 10px 0;
+      height: auto;
+      opacity: 1;
+    }
+  .hidden_box4 {
+    margin: 2em 0;
+    padding: 0;
+    position: absolute;
+    left: 35%;
+    top: 250%;
+  }
+     // ボタンの装飾
+    .hidden_box4 label {
+      padding: 15px;
+      font-weight: bold;
+      border: solid 2px black;
+      cursor: pointer;
+      font-size: 3em;
+    }
+    // アイコン
+    .hidden_box4 label:before {
+      display: inline-block;
+      content: '\f107';
+      font-family: 'Font Awesome 5 Free';
+      padding-right: 5px;
+      transition: 0.2s;
+    }
+    // ボタンホバー時
+    .hidden_box4 label:hover {
+      background: #efefef;
+    }
+    // アイコン変わる
+    .hidden_box4 input:checked ~ label:before {
+      content: '\f00d';
+      font-family: 'Font Awesome 5 Free';
+      transform: rotate(360deg);
+      color: #668ad8;
+    }
+    // チェックボックス隠す
+    .hidden_box4 input {
+      display: none;
+    }
+    // 中身を非表示
+    .hidden_box4 .hidden_show4 {
+      height: 0;
+      padding: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: 0.8s;
+    }
+    // クリックで表示
+    .hidden_box4 input:checked ~ .hidden_show4 {
+      padding: 10px 0;
+      height: auto;
+      opacity: 1;
+    }
+    }

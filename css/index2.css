@@ -1,0 +1,577 @@
+@import url("https://fonts.googleapis.com/css?family=Alegreya+Sans:800,900");
+html, body, main {
+  height: 100%;
+}
+
+body {
+  background: #6ebeec;
+  font-family: Alegreya Sans, sans-serif;
+}
+
+nav {
+  display: block;
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  user-select: none;
+  transform: translate3d(25px, -25px, 0);
+  transition: transform 0.5s cubic-bezier(0.3, 1.4, 0.5, 0.9);
+  z-index: 3;
+}
+
+nav.open {
+  transform: translate3d(0, 0, 0);
+}
+
+nav.top-right {
+  top: -140px;
+  right: -140px;
+}
+
+.disc {
+  position: absolute;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+  font: 25px Alegreya Sans, sans-serif;
+  line-height: 40px;
+  padding-top: 10px;
+  border-radius: 250px;
+  transform: scale3d(0.5, 0.5, 0.5) rotate3d(0, 0, 1, 190deg);
+  pointer-events: none;
+  opacity: 0;
+  cursor: pointer;
+  transition: transform 0.5s cubic-bezier(0.3, 1.4, 0.5, 0.9), opacity 0.5s;
+  text-decoration: none;
+  color: black;
+}
+
+.disc div {
+  transform: rotate(180deg);
+}
+
+.open .disc {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.l1 {
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background: #ff47ff;
+  transition-delay: 0s;
+}
+
+.open .l1 {
+  transition-delay: 0s;
+  transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, 190deg);
+  opacity: 1;
+}
+
+.open .l1:hover {
+  background: shade(#ff47ff, 90%);
+  color: #ff47ff;
+  transition-delay: 0s;
+}
+
+.open .l1:active {
+  background: shade(#ff47ff, 50%);
+  color: #ff47ff;
+}
+
+.open .l1.toggle {
+  transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, 10deg);
+}
+
+.l2 {
+  top: 50px;
+  left: 50px;
+  right: 50px;
+  bottom: 50px;
+  background: #ff39d9;
+  transition-delay: 0.1s;
+}
+
+.open .l2 {
+  transition-delay: 0.1s;
+  transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, 190deg);
+  opacity: 1;
+}
+
+.open .l2:hover {
+  background: shade(#ff39d9, 90%);
+  color: #ff39d9;
+  transition-delay: 0s;
+}
+
+.open .l2:active {
+  background: shade(#ff39d9, 50%);
+  color: #ff39d9;
+}
+
+.open .l2.toggle {
+  transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, 10deg);
+}
+
+.l3 {
+  top: 100px;
+  left: 100px;
+  right: 100px;
+  bottom: 100px;
+  background: #ff2bb3;
+  transition-delay: 0.2s;
+}
+
+.open .l3 {
+  transition-delay: 0.2s;
+  transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, 190deg);
+  opacity: 1;
+}
+
+.open .l3:hover {
+  background: shade(#ff2bb3, 90%);
+  color: #ff2bb3;
+  transition-delay: 0s;
+}
+
+.open .l3:active {
+  background: shade(#ff2bb3, 50%);
+  color: #ff2bb3;
+}
+
+.open .l3.toggle {
+  transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, 10deg);
+}
+
+.l4 {
+  top: 150px;
+  left: 150px;
+  right: 150px;
+  bottom: 150px;
+  background: #ff1c8c;
+  transition-delay: 0.3s;
+}
+
+.open .l4 {
+  transition-delay: 0.3s;
+  transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, 190deg);
+  opacity: 1;
+}
+
+.open .l4:hover {
+  background: shade(#ff1c8c, 90%);
+  color: #ff1c8c;
+  transition-delay: 0s;
+}
+
+.open .l4:active {
+  background: shade(#ff1c8c, 50%);
+  color: #ff1c8c;
+}
+
+.open .l4.toggle {
+  transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, 10deg);
+}
+
+.l5 {
+  top: 200px;
+  left: 200px;
+  right: 200px;
+  bottom: 200px;
+  background: #ff0e66;
+  transition-delay: 0.4s;
+}
+
+.open .l5 {
+  transition-delay: 0.4s;
+  transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, 190deg);
+  opacity: 1;
+}
+
+.open .l5:hover {
+  background: shade(#ff0e66, 90%);
+  color: #ff0e66;
+  transition-delay: 0s;
+}
+
+.open .l5:active {
+  background: shade(#ff0e66, 50%);
+  color: #ff0e66;
+}
+
+.open .l5.toggle {
+  transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, 10deg);
+}
+
+.toggle {
+  line-height: 100px;
+  padding: 0;
+  width: 100px;
+  background: #ff0040;
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+  transition-delay: 0s;
+}
+
+.open .toggle {
+  transform: rotate3d(0, 0, 1, 0deg);
+}
+
+.toggle:hover {
+  background: shade(#ff0040, 90%);
+  text-decoration: underline;
+}
+
+.toggle:active {
+  background: shade(#ff0040, 50%);
+  color: rgba(255, 0, 64, 0.5);
+  transform: scale(0.9);
+  transition-duration: 0s;
+}
+
+main {
+  position: relative;
+}
+
+main .title {
+  margin: 10em 0 20em 0;
+}
+
+main p {
+  color: #fff;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1em;
+  font-weight: 700;
+}
+
+main p span {
+  display: inline-block;
+  position: relative;
+  transform-style: preserve-3d;
+  perspective: 500px;
+}
+
+main p span::before,
+main p span::after {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: -1px;
+  transform-origin: left top;
+  transition: all ease-out .3s;
+  content: attr(date-text);
+}
+
+main p span::before {
+  z-index: 1;
+  color: rgba(0, 0, 0, 0.2);
+  transform: scale(1.1, 1) skew(0deg, 20deg);
+}
+
+main p span::after {
+  z-index: 2;
+  color: #3498db;
+  text-shadow: -1px 0 1px #3498db, 1px 0 1px #fff;
+  transform: rotateY(-40deg);
+}
+
+main p span:hover::before {
+  transform: scale(1.1, 1) skew(0deg, 5deg);
+}
+
+main p span:hover::after {
+  transform: rotateY(-10deg);
+}
+
+main p span + span {
+  margin-left: .3em;
+}
+
+@media (min-width: 20em) {
+  main p {
+    font-size: 2em;
+  }
+  main p span::before, main p span::after {
+    display: block;
+  }
+}
+
+@media (min-width: 30em) {
+  main p {
+    font-size: 3em;
+  }
+}
+
+@media (min-width: 40em) {
+  main p {
+    font-size: 5em;
+  }
+}
+
+@media (min-width: 60em) {
+  main p {
+    font-size: 8em;
+  }
+}
+
+main .hidden_box1 {
+  margin: 2em 0;
+  padding: 0;
+  position: absolute;
+  top: 100%;
+}
+
+main .hidden_box1 .hidden_show1 {
+  width: 100vw;
+  background-color: white;
+  margin-top: 20px;
+}
+
+main .hidden_box1 .hidden_show1 ul {
+  display: flex;
+  justify-content: space-around;
+}
+
+main .hidden_box1 .hidden_show1 ul .animation {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  font-size: 20px;
+}
+
+main .hidden_box1 .hidden_show1 ul .animation1 {
+  font-size: 100px;
+  list-style: none;
+}
+
+main .hidden_box1 label {
+  padding: 15px;
+  font-weight: bold;
+  border: solid 2px black;
+  cursor: pointer;
+  font-size: 3em;
+}
+
+main .hidden_box1 label:before {
+  display: inline-block;
+  content: '\f107';
+  font-family: 'Font Awesome 5 Free';
+  padding-right: 5px;
+  transition: 0.2s;
+}
+
+main .hidden_box1 label:hover {
+  background: #efefef;
+}
+
+main .hidden_box1 input:checked ~ label:before {
+  content: '\f00d';
+  font-family: 'Font Awesome 5 Free';
+  transform: rotate(360deg);
+  color: #668ad8;
+}
+
+main .hidden_box1 input {
+  display: none;
+}
+
+main .hidden_box1 .hidden_show1 {
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: 0.8s;
+}
+
+main .hidden_box1 input:checked ~ .hidden_show1 {
+  padding: 10px 0;
+  height: auto;
+  opacity: 1;
+}
+
+main .hidden_box2 {
+  margin: 2em 0;
+  padding: 0;
+  position: absolute;
+  top: 150%;
+}
+
+main .hidden_box2 .hidden_show2 {
+  width: 100vw;
+  background-color: white;
+  margin-top: 20px;
+}
+
+main .hidden_box2 .hidden_show2 ul {
+  display: flex;
+  justify-content: space-around;
+}
+
+main .hidden_box2 .hidden_show2 ul .animation {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  font-size: 20px;
+}
+
+main .hidden_box2 .hidden_show2 ul .animation2 {
+  font-size: 30px;
+  list-style: none;
+}
+
+main .hidden_box2 label {
+  padding: 15px;
+  font-weight: bold;
+  border: solid 2px black;
+  cursor: pointer;
+  font-size: 3em;
+}
+
+main .hidden_box2 label:before {
+  display: inline-block;
+  content: '\f107';
+  font-family: 'Font Awesome 5 Free';
+  padding-right: 5px;
+  transition: 0.2s;
+}
+
+main .hidden_box2 label:hover {
+  background: #efefef;
+}
+
+main .hidden_box2 input:checked ~ label:before {
+  content: '\f00d';
+  font-family: 'Font Awesome 5 Free';
+  transform: rotate(360deg);
+  color: #668ad8;
+}
+
+main .hidden_box2 input {
+  display: none;
+}
+
+main .hidden_box2 .hidden_show2 {
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: 0.8s;
+}
+
+main .hidden_box2 input:checked ~ .hidden_show2 {
+  padding: 10px 0;
+  height: auto;
+  opacity: 1;
+}
+
+main .hidden_box3 {
+  margin: 2em 0;
+  padding: 0;
+  position: absolute;
+  left: 35%;
+  top: 200%;
+}
+
+main .hidden_box3 label {
+  padding: 15px;
+  font-weight: bold;
+  border: solid 2px black;
+  cursor: pointer;
+  font-size: 3em;
+}
+
+main .hidden_box3 label:before {
+  display: inline-block;
+  content: '\f107';
+  font-family: 'Font Awesome 5 Free';
+  padding-right: 5px;
+  transition: 0.2s;
+}
+
+main .hidden_box3 label:hover {
+  background: #efefef;
+}
+
+main .hidden_box3 input:checked ~ label:before {
+  content: '\f00d';
+  font-family: 'Font Awesome 5 Free';
+  transform: rotate(360deg);
+  color: #668ad8;
+}
+
+main .hidden_box3 input {
+  display: none;
+}
+
+main .hidden_box3 .hidden_show3 {
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: 0.8s;
+}
+
+main .hidden_box3 input:checked ~ .hidden_show3 {
+  padding: 10px 0;
+  height: auto;
+  opacity: 1;
+}
+
+main .hidden_box4 {
+  margin: 2em 0;
+  padding: 0;
+  position: absolute;
+  left: 35%;
+  top: 250%;
+}
+
+main .hidden_box4 label {
+  padding: 15px;
+  font-weight: bold;
+  border: solid 2px black;
+  cursor: pointer;
+  font-size: 3em;
+}
+
+main .hidden_box4 label:before {
+  display: inline-block;
+  content: '\f107';
+  font-family: 'Font Awesome 5 Free';
+  padding-right: 5px;
+  transition: 0.2s;
+}
+
+main .hidden_box4 label:hover {
+  background: #efefef;
+}
+
+main .hidden_box4 input:checked ~ label:before {
+  content: '\f00d';
+  font-family: 'Font Awesome 5 Free';
+  transform: rotate(360deg);
+  color: #668ad8;
+}
+
+main .hidden_box4 input {
+  display: none;
+}
+
+main .hidden_box4 .hidden_show4 {
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: 0.8s;
+}
+
+main .hidden_box4 input:checked ~ .hidden_show4 {
+  padding: 10px 0;
+  height: auto;
+  opacity: 1;
+}
+/*# sourceMappingURL=index2.css.map */
