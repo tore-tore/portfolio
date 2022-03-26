@@ -1,8 +1,4 @@
 @import url("https://fonts.googleapis.com/css?family=Alegreya+Sans:800,900");
-html, body, main {
-  height: 100%;
-}
-
 body {
   background: #6ebeec;
   font-family: Alegreya Sans, sans-serif;
@@ -233,11 +229,25 @@ nav.top-right {
 }
 
 main {
-  position: relative;
+  position: absolute;
+}
+
+main span[data-text="A"] {
+  background-color: brown;
+  clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
 }
 
 main .title {
-  margin: 10em 0 20em 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: -175vh;
+}
+
+main .content {
+  position: relative;
 }
 
 main p {
@@ -317,11 +327,27 @@ main p span + span {
   }
 }
 
+main .hidden_box1, main .hidden_box2, main .hidden_box3, main .hidden_box4 {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  position: static;
+  padding: 100px;
+}
+
+main .hidden_box1 .animation dl, main .hidden_box2 .animation dl, main .hidden_box3 .animation dl, main .hidden_box4 .animation dl {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+main .hidden_box1 .animation dl dd, main .hidden_box2 .animation dl dd, main .hidden_box3 .animation dl dd, main .hidden_box4 .animation dl dd {
+  margin: 0;
+}
+
 main .hidden_box1 {
   margin: 2em 0;
-  padding: 0;
-  position: absolute;
-  top: 100%;
 }
 
 main .hidden_box1 .hidden_show1 {
@@ -395,9 +421,6 @@ main .hidden_box1 input:checked ~ .hidden_show1 {
 
 main .hidden_box2 {
   margin: 2em 0;
-  padding: 0;
-  position: absolute;
-  top: 150%;
 }
 
 main .hidden_box2 .hidden_show2 {
@@ -471,10 +494,6 @@ main .hidden_box2 input:checked ~ .hidden_show2 {
 
 main .hidden_box3 {
   margin: 2em 0;
-  padding: 0;
-  position: absolute;
-  left: 35%;
-  top: 200%;
 }
 
 main .hidden_box3 label {
@@ -524,10 +543,6 @@ main .hidden_box3 input:checked ~ .hidden_show3 {
 
 main .hidden_box4 {
   margin: 2em 0;
-  padding: 0;
-  position: absolute;
-  left: 35%;
-  top: 250%;
 }
 
 main .hidden_box4 label {

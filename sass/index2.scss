@@ -11,11 +11,22 @@ $start-rot : 190deg;
 
 @import url('https://fonts.googleapis.com/css?family=Alegreya+Sans:800,900');
 
-html, body, main { height: 100%; }
+// html, body { height: 100%; }
 body {
   background: rgb(110, 190, 236);
   font-family: Alegreya Sans, sans-serif;
+
+  // css-doodleここから
+//   font: 900 100px/0.65 system-ui;
+//   margin: 0;
+//   overflow: hidden;
+//   width: 110%;
 }
+// span{
+//   display: inline-block;
+//   text-indent: -2rem;
+//   position: relative;
+// }
   nav {
     display: block;
     position: fixed;
@@ -129,10 +140,41 @@ body {
 
   main {
     // ボタン位置固定
-    position: relative;
+    // position: relative;
+    position: absolute;
+  //   .sen {
+  //       position: relative;
+  //       width: 30px; /* 縦棒の幅 */
+  //       height: 120px; /* 縦棒の長さ */
+  //        background: #EF6C00; /* 縦棒の色 */
+  //       ::after {
+  //         content: "";
+  // position: absolute;
+  // top: 45px; /* 横棒のy位置 */
+  // left: -45px; /* 横棒のX位置 */
+  // width: 120px; /* 横棒の長さ */
+  // height: 30px; /* 横棒の幅 */
+  // background: #EF6C00; /* 横棒の色 */
+  //       }
+  //   }
+  span[data-text = "A"]{
+    background-color: brown;
+    clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+  }
     .title {
-      margin: 10em 0 20em 0;
+      // margin: 10em 0 20em 0;
+      height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: -175vh;
     }
+
+    .content {
+      position: relative;
+    }
+
     p {
       color: #fff;
       font-family: 'Oswald', sans-serif;
@@ -199,13 +241,35 @@ body {
       font-size: 8em;
     }
   }
+  .hidden_box1, .hidden_box2, .hidden_box3, .hidden_box4{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    position: static;
+    padding: 100px;
+    .animation {
+      dl {
+        display: flex;
+    flex-flow: column;
+    align-items: center;
+    dd {
+      margin: 0;
+    }
+      }
+    }
+  }
   // 全体
   .hidden_box1 {
     margin: 2em 0;
-    padding: 0;
-    position: absolute;
+    // padding: 0;
+    // position: absolute;
     // left: 35%;
-    top: 100%;
+    // top: 100%;
+    // display: flex;
+    // flex-flow: column;
+    // align-items: center;
+    // justify-content: center;
     .hidden_show1 {
       width: 100vw;
       background-color: white;
@@ -271,13 +335,14 @@ body {
       padding: 10px 0;
       height: auto;
       opacity: 1;
+
     }
   .hidden_box2 {
     margin: 2em 0;
-    padding: 0;
-    position: absolute;
+    // padding: 0;
+    // position: absolute;
     // left: 35%;
-    top: 150%;
+    // top: 150%;
     .hidden_show2 {
       width: 100vw;
       background-color: white;
@@ -346,10 +411,10 @@ body {
   }
   .hidden_box3 {
     margin: 2em 0;
-    padding: 0;
-    position: absolute;
-    left: 35%;
-    top: 200%;
+    // padding: 0;
+    // position: absolute;
+    // left: 35%;
+    // top: 200%;
   }
      // ボタンの装飾
     .hidden_box3 label {
@@ -398,10 +463,10 @@ body {
     }
   .hidden_box4 {
     margin: 2em 0;
-    padding: 0;
-    position: absolute;
-    left: 35%;
-    top: 250%;
+    // padding: 0;
+    // position: absolute;
+    // left: 35%;
+    // top: 250%;
   }
      // ボタンの装飾
     .hidden_box4 label {
