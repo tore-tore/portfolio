@@ -49,7 +49,7 @@
     transition-delay: @rand(650ms);
     transform: translateY(calc(var(--s) * 100%)) rotate(calc(var(--s) * 360deg));
   </css-doodle> -->
-    
+    <div class="wrapper"><!--positionをつけるといいかも、ページ崩れを防ぐのにレスポンしぶるすべきかも-->
         <div class="title">
           <!-- <div class="sen"> -->
             <p aria-label="CodePen">
@@ -59,14 +59,14 @@
               <span data-text="A">A</span>
               <span data-text="R">R</span>
               <span data-text="A">A</span>
-              <span data-text="No">の</span>
-              <span data-text="Po">ポ</span>
-              <span data-text="O">ー</span>
-              <span data-text="To">ト</span>
-              <span data-text="Hu">フ</span>
-              <span data-text="o">ォ</span>
-              <span data-text="Ri">リ</span>
-              <span data-text="O">オ</span>
+              <span class="n" data-text="No">の</span>
+              <span class="mobile" data-text="Po">ポ</span>
+              <span class="mobile" data-text="O">ー</span>
+              <span class="mobile" data-text="To">ト</span>
+              <span class="mobile" data-text="Hu">フ</span>
+              <span class="mobile" data-text="o">ォ</span>
+              <span class="mobile" data-text="Ri">リ</span>
+              <span class="mobile" data-text="O">オ</span>
             </p>
             <!-- </div> -->
           </div>
@@ -149,6 +149,7 @@
             </div>
           </div>
         </div>
+      </div>
           <!-- </canvas> -->
         </main>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
