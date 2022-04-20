@@ -460,6 +460,19 @@ body {
       overflow: hidden;
       opacity: 0;
       transition: 0.8s;
+      iframe {
+        max-width: 100%; /* 親要素の幅以下に */
+      }
+      // 白ラベル
+      width: 100vw;
+      background-color: white;
+      margin-top: 20px;
+      ul {
+        padding: 0 10px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
     }
     // クリックで表示
     .hidden_box3 input:checked ~ .hidden_show3 {
@@ -512,6 +525,14 @@ body {
       overflow: hidden;
       opacity: 0;
       transition: 0.8s;
+      // 白ラベル
+      width: 100vw;
+      background-color: white;
+      margin-top: 20px;
+      ul {
+        display: flex;
+        justify-content: space-around;
+      }
     }
     // クリックで表示
     .hidden_box4 input:checked ~ .hidden_show4 {
